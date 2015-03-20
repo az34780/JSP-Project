@@ -12,7 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class HelloServlet
  */
-@WebServlet("*.first")
+//@WebServlet("*.first") //URL Mapping
+@WebServlet("/HelloServlet")
 public class HelloServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -29,9 +30,21 @@ public class HelloServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		//한글처리
+		request.setCharacterEncoding("UTF-8");//GET방식에서는 안됨,URIEncoding="UTF-8"해줘야함
+		response.setContentType("text/html;charset=UTF-8");
+		
 		PrintWriter out =response.getWriter();
 		
-		out.print("Hello");
+		
+		String j= request.getParameter("abc");//이름의 정보 값이 넘어옴 "name속성"
+		String id= request.getParameter("id");
+		String password= request.getParameter("pwd");
+		
+		out.print("Hello - GET<br>");
+		out.print("이름  :"+ j +"<br>");
+
+	
 	}
 
 	/**
@@ -39,6 +52,22 @@ public class HelloServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		//한글처리
+		request.setCharacterEncoding("UTF-8");//데이터입력창한글깨짐방지
+		response.setContentType("text/html;charset=UTF-8");//한글깨짐방지
+		
+		PrintWriter out =response.getWriter();
+		
+		String j= request.getParameter("name");//이름의 정보 값이 넘어옴 "name속성"
+		String id= request.getParameter("id");
+		String password= request.getParameter("pwd");
+		//out.print("<html>");
+		out.print("Hello - GET<br>");
+		out.print("이름  :"+ j +"<br>");
+	//	out.print("</html>");
+	
 	}
 
-}
+	}
+
+
