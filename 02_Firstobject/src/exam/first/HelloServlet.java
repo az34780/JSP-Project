@@ -31,8 +31,8 @@ public class HelloServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//한글처리
-		request.setCharacterEncoding("UTF-8");//GET방식에서는 안됨,URIEncoding="UTF-8"해줘야함
-		response.setContentType("text/html;charset=UTF-8");
+		request.setCharacterEncoding("UTF-8");//GET방식에서는 안됨,server.xmlURIEncoding="UTF-8"해줘야함//클->서
+		response.setContentType("text/html;charset=UTF-8");//ㄴㅐ려보낼떄html로 보내겟다.(MIME)
 		
 		PrintWriter out =response.getWriter();
 		
